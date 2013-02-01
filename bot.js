@@ -30,10 +30,10 @@ var WebSocket   = require('./websocket').WebSocket
 
 
 var Bot = function () {
-  this.auth            = arguments[0];
-  this.userId          = arguments[1];
-  if (arguments.length == 3) {
-    this.roomId        = arguments[2];
+  this.auth            = process.env.TURNTABLE_AUTH;
+  this.userId          = process.env.TURNTABLE_USERID;
+  if (process.env.TURNTABLE_ROOMID.length > 0) {
+    this.roomId        = process.env.TURNTABLE_ROOMID;
   } else {
     this.roomId        = null;
   }
